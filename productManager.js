@@ -1,6 +1,15 @@
+const fs = require("fs");
+
 class ProductManager {
-  constructor() {
+  constructor(path) {
     this.products = [];
+    this.path = path;
+  }
+
+  async clearProducts() {
+    this.products = [];
+    const productsJSON = JSON.stringify(this.products, null, 2);
+    await fs.promises.writeFile(this.path, productsJSON);
   }
 
   validateProduct = ({ title, description, price, thumbnail, code, stock }) => {
@@ -14,7 +23,8 @@ class ProductManager {
     }
   };
 
-  addProduct = (title, description, price, thumbnail, code, stock) => {
+  // create a product and save it to json file
+  async addProduct(title, description, price, thumbnail, code, stock) {
     const newProduct = {
       id: this.products.length + 1,
       title,
@@ -28,19 +38,55 @@ class ProductManager {
     this.validateProduct(newProduct);
 
     this.products.push(newProduct);
+    const productsJSON = JSON.stringify(this.products, null, 2);
+    await fs.promises.writeFile(this.path, productsJSON);
     return newProduct;
-  };
+  }
 
-  getProducts() {
+  // read products from json file
+  async getProducts() {
+    const productsJSON = await fs.promises.readFile(this.path, "utf-8");
+    this.products = JSON.parse(productsJSON);
     return this.products;
   }
 
-  getProductById(id) {
+  // read products from json file and find product by id
+  async getProductById(id) {
     const product = this.products.find((product) => product.id === id);
     if (!product) {
       throw new Error("Product not found");
     }
     return product;
+  }
+
+  // Update product and save it to json file
+  async updateProduct(id, title, description, price, thumbnail, code, stock) {
+    // update with product id
+    const productIndex = this.products.findIndex((product) => product.id === id);
+    if (productIndex === -1) {
+      throw new Error("Product not found");
+    }
+    // update with product properties
+    if (!title || !description || !price || !thumbnail || !code || !stock) {
+      throw new Error("Missing properties");
+    }
+    this.products[productIndex] = { id, title, description, price, thumbnail, code, stock };
+    const productsJSON = JSON.stringify(this.products, null, 2);
+    await fs.promises.writeFile(this.path, productsJSON);
+    return this.products[productIndex];
+  }
+
+  // delete product and save it to json file
+  async deleteProduct(id) {
+    const productIndex = this.products.findIndex((product) => product.id === id);
+    if (productIndex === -1) {
+      throw new Error("Product not found");
+    }
+    const deletedProduct = this.products[productIndex];
+    this.products.splice(productIndex, 1);
+    const productsJSON = JSON.stringify(this.products, null, 2);
+    await fs.promises.writeFile(this.path, productsJSON);
+    return deletedProduct;
   }
 }
 module.exports = ProductManager;
