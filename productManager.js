@@ -5,13 +5,13 @@ class ProductManager {
     this.products = [];
     this.path = path;
   }
-
+  // clear products from json file
   async clearProducts() {
     this.products = [];
     const productsJSON = JSON.stringify(this.products, null, 2);
     await fs.promises.writeFile(this.path, productsJSON);
   }
-
+  // validate product properties
   validateProduct = ({ title, description, price, thumbnail, code, stock }) => {
     if (!title || !description || !price || !thumbnail || !code || !stock) {
       throw new Error("Missing properties");
@@ -22,6 +22,12 @@ class ProductManager {
       throw new Error("Product with code already exists");
     }
   };
+
+  // saveProducts to json file
+  async saveProducts() {
+    const productsJSON = JSON.stringify(this.products, null, 2);
+    await fs.promises.writeFile(this.path, productsJSON);
+  }
 
   // create a product and save it to json file
   async addProduct(title, description, price, thumbnail, code, stock) {
@@ -36,10 +42,8 @@ class ProductManager {
     };
 
     this.validateProduct(newProduct);
-
     this.products.push(newProduct);
-    const productsJSON = JSON.stringify(this.products, null, 2);
-    await fs.promises.writeFile(this.path, productsJSON);
+    await this.saveProducts();
     return newProduct;
   }
 
@@ -71,8 +75,7 @@ class ProductManager {
       throw new Error("Missing properties");
     }
     this.products[productIndex] = { id, title, description, price, thumbnail, code, stock };
-    const productsJSON = JSON.stringify(this.products, null, 2);
-    await fs.promises.writeFile(this.path, productsJSON);
+    await this.saveProducts();
     return this.products[productIndex];
   }
 
@@ -84,8 +87,7 @@ class ProductManager {
     }
     const deletedProduct = this.products[productIndex];
     this.products.splice(productIndex, 1);
-    const productsJSON = JSON.stringify(this.products, null, 2);
-    await fs.promises.writeFile(this.path, productsJSON);
+    await this.saveProducts();
     return deletedProduct;
   }
 }
