@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "title": "Square Dress",
+    "description": "Step into timeless elegance with this vintage-inspired grey dress, perfect for special occasions and garden parties.",
+    "price": 5000,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/estonoesmoda-34be0.appspot.com/o/products%2Fdressgreysquare.webp?alt=media&token=e157a218-6e9f-4ac6-ab3a-10c555393cbe&_gl=1*e8tva*_ga*NTYwODIwNDQyLjE2OTY4OTkwODY.*_ga_CW55HF8NVT*MTY5Njk4NTUwNy41LjEuMTY5Njk5MjA1MS40NC4wLjA.",
+    "code": "SQD",
+    "stock": 2
+  },
+  {
+    "id": 2,
+    "title": "Scorpion Dress",
+    "description": "Make a bold statement with this alluring black dress featuring daring scorpion-inspired patterns, designed for those who embrace their individuality.",
+    "price": 6000,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/estonoesmoda-34be0.appspot.com/o/products%2Fscorpion-dress.jpg?alt=media&token=9da29d17-9601-4605-96b0-c20c0543a1fb&_gl=1*osncaz*_ga*NTYwODIwNDQyLjE2OTY4OTkwODY.*_ga_CW55HF8NVT*MTY5Njk4NTUwNy41LjEuMTY5Njk5MjExNy40Ny4wLjA.",
+    "code": "SCD",
+    "stock": 2
+  },
+  {
+    "id": 3,
+    "title": "Spring Dress",
+    "description": "This spring dress is a must-have for your wardrobe. Featuring a floral pattern and a flattering silhouette, this dress is perfect for any occasion.",
+    "price": 7000,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/estonoesmoda-34be0.appspot.com/o/products%2Fspring-dress.jpg?alt=media&token=f372e803-e3e1-4a90-841b-d216d1faa83a&_gl=1*yfoqcp*_ga*NTYwODIwNDQyLjE2OTY4OTkwODY.*_ga_CW55HF8NVT*MTY5Njk4NTUwNy41LjEuMTY5Njk5MjE1OS41LjAuMA.",
+    "code": "SPD",
+    "stock": 2
+  },
+  {
+    "id": 4,
+    "title": "Butterfly Shirt",
+    "description": "Add a touch of whimsy to your wardrobe with this charming butterfly shirt, perfect for casual wear.",
+    "price": 2000,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/estonoesmoda-34be0.appspot.com/o/products%2Fshirt-butterfly.jpg?alt=media&token=22e65829-3f25-4aca-9ba9-ffe57e739aa1&_gl=1*vy6efw*_ga*NTYwODIwNDQyLjE2OTY4OTkwODY.*_ga_CW55HF8NVT*MTY5Njk4NTUwNy41LjEuMTY5Njk5MjEzOS4yNS4wLjA.",
+    "code": "BTS",
+    "stock": 5
+  },
+  {
+    "id": 5,
+    "title": "Black Shirt",
+    "description": "A classic black shirt is a wardrobe staple, and this one is no exception. Featuring a flattering fit and a timeless design, this shirt is perfect for any occasion.",
+    "price": 3000,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/estonoesmoda-34be0.appspot.com/o/products%2Fblack-shirt.jpg?alt=media&token=d9694583-cdad-4e01-a6a9-cedad9127ae4&_gl=1*l4f6qh*_ga*NTYwODIwNDQyLjE2OTY4OTkwODY.*_ga_CW55HF8NVT*MTY5Njk4NTUwNy41LjEuMTY5Njk5MTkwMS42MC4wLjA.",
+    "code": "BLS",
+    "stock": 1
+  },
+  {
+    "id": 6,
+    "title": "Bby Pink Shirt",
+    "description": "Timeless charm meets vintage allure in this faded pink tee, offer comfort and versatility.",
+    "price": 4990,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/estonoesmoda-34be0.appspot.com/o/products%2Fbby-pink-shirt.jpg?alt=media&token=e9c32eee-c480-479c-8d41-5777b7b5a86a",
+    "code": "BPS",
+    "stock": 2
+  },
+  {
+    "id": 7,
+    "title": "Square Pant",
+    "description": "Embrace modern-classic fusion with these deep brown pants featuring a subtle square pattern, ideal for both office and casual wear.",
+    "price": 4590,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/estonoesmoda-34be0.appspot.com/o/products%2Fbrown-pant-square.jpg?alt=media&token=1f1f54fb-a2f4-477d-ac4d-792f92b43bc1&_gl=1*13bul8z*_ga*NTYwODIwNDQyLjE2OTY4OTkwODY.*_ga_CW55HF8NVT*MTY5Njk4NTUwNy41LjEuMTY5Njk5MjAzMi4zLjAuMA..",
+    "code": "SQP",
+    "stock": 10
+  },
+  {
+    "id": 8,
+    "title": "Blue Jean",
+    "description": "Your new go-to pair of premium denim jeans, offering a comfortable and flattering fit for versatile, stylish looks.",
+    "price": 7990,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/estonoesmoda-34be0.appspot.com/o/products%2Fbluejeans.jpg?alt=media&token=2de6980f-9dd1-454b-9d4d-cd099e31df8b&_gl=1*nzokzp*_ga*NTYwODIwNDQyLjE2OTY4OTkwODY.*_ga_CW55HF8NVT*MTY5Njk4NTUwNy41LjEuMTY5Njk5MTk4MC41NS4wLjA.",
+    "code": "BLJ",
+    "stock": 3
+  },
+  {
+    "id": 9,
+    "title": "Bordeaux Pant",
+    "description": "Elevate your style with these rich burgundy trousers, perfect for adding sophistication to any outfit.",
+    "price": 9990,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/estonoesmoda-34be0.appspot.com/o/products%2Fpant-bordeaux.jpg?alt=media&token=e6f91eb2-31b0-4cf7-9ddb-612199057f08&_gl=1*1o134s4*_ga*NTYwODIwNDQyLjE2OTY4OTkwODY.*_ga_CW55HF8NVT*MTY5Njk4NTUwNy41LjEuMTY5Njk5MjA4Ni45LjAuMA.",
+    "code": "BDP",
+    "stock": 6
+  }
+]
