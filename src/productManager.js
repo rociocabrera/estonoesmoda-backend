@@ -91,4 +91,5 @@ class ProductManager {
     return deletedProduct;
   }
 }
+
 module.exports = ProductManager;

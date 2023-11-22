@@ -2,7 +2,7 @@ async function testProductManager() {
   const ProductManager = require("./productManager");
 
   // Instance new class
-  const productManager = new ProductManager("./products.json");
+  const productManager = new ProductManager("./src/testProducts.json");
 
   await productManager.clearProducts();
 
