@@ -1,18 +1,11 @@
-const express = require("express");
-const ProductManager = require("./productManager");
-
-const app = express();
-// The port number 8080 is assigned to the constant PORT.
-const PORT = 8080;
-
-app.get("/", (req, res) => {
-  res.status(201).send("Welcome to Esto no es Moda!");
-});
+const { Router } = require("express");
+const router = Router();
+const ProductManager = require("../managers/productManager");
 
 // The ProductManager class is instantiated with the path to the products.json file.
 const productManager = new ProductManager("./src/products.json");
 
-app.get("/products", async (req, res) => {
+router.get("/", async (req, res) => {
   console.log(await productManager.getProducts());
   let limit = req.query.limit;
   const returnProducts = await productManager.getProducts();
@@ -25,8 +18,8 @@ app.get("/products", async (req, res) => {
   }
 });
 
-// The app.get() method is used to define a route handler for the GET HTTP method to the path /products/:pid.
-app.get("/products/:pid", async (req, res) => {
+// The router.get() method is used to define a route handler for the GET HTTP method to the path /products/:pid.
+router.get("/:pid", async (req, res) => {
   try {
     const id = parseInt(req.params.pid);
     const product = await productManager.getProductById(id);
@@ -38,7 +31,4 @@ app.get("/products/:pid", async (req, res) => {
   }
 });
 
-// listen for requests on the port
-app.listen(PORT, () => {
-  console.log(`Server listening on port http:/localhost:${PORT}`);
-});
+module.exports = router;
