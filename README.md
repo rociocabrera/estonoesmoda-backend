@@ -21,7 +21,7 @@ cd estonoesmoda-backend
 3. Run the test file
 
 ```bash
-node test.js
+node test/test.js
 ```
 
 ## License
