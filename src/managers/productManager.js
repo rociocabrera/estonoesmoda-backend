@@ -12,8 +12,8 @@ class ProductManager {
     await fs.promises.writeFile(this.path, productsJSON);
   }
   // validate product properties
-  validateProduct = ({ title, description, price, thumbnail, code, stock }) => {
-    if (!title || !description || !price || !thumbnail || !code || !stock) {
+  validateProduct = ({ title, description, price, thumbnails, code, stock, status, category }) => {
+    if (!title || !description || !price || thumbnails?.length === 0 || !code || !stock || typeof status !== "boolean" || !category) {
       throw new Error("Missing properties");
     }
 
@@ -30,16 +30,19 @@ class ProductManager {
   }
 
   // create a product and save it to json file
-  async addProduct(title, description, price, thumbnail, code, stock) {
+  async addProduct(title, description, price, thumbnails, code, stock, status, category) {
     const newProduct = {
       id: this.products.length + 1,
       title,
       description,
       price,
-      thumbnail,
+      thumbnails,
       code,
       stock,
+      status,
+      category,
     };
+    console.log(newProduct);
 
     this.validateProduct(newProduct);
     this.products.push(newProduct);
@@ -64,17 +67,17 @@ class ProductManager {
   }
 
   // Update product and save it to json file
-  async updateProduct(id, title, description, price, thumbnail, code, stock) {
+  async updateProduct(id, title, description, price, thumbnails, code, stock, status, category) {
     // update with product id
     const productIndex = this.products.findIndex((product) => product.id === id);
     if (productIndex === -1) {
       throw new Error("Product not found");
     }
     // update with product properties
-    if (!title || !description || !price || !thumbnail || !code || !stock) {
+    if (!title || !description || !price || thumbnails?.length === 0 || !code || !stock || typeof status !== "boolean" || !category) {
       throw new Error("Missing properties");
     }
-    this.products[productIndex] = { id, title, description, price, thumbnail, code, stock };
+    this.products[productIndex] = { id, title, description, price, thumbnails, code, stock, status, category };
     await this.saveProducts();
     return this.products[productIndex];
   }
