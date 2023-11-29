@@ -55,4 +55,14 @@ router.put("/:pid", async (req, res) => {
   }
 });
 
+router.delete("/:pid", async (req, res) => {
+  try {
+    const id = parseInt(req.params.pid);
+    await productManager.deleteProduct(id);
+    res.status(200).json({ status: "ok", message: "Product deleted" });
+  } catch (error) {
+    res.status(400).json({ status: "error", message: error.message });
+  }
+});
+
 module.exports = router;

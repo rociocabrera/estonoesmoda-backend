@@ -115,19 +115,5 @@
     "stock": 6,
     "category": "Pants",
     "status": true
-  },
-  {
-    "id": 10,
-    "title": "Welcome to estonoesmoda",
-    "description": "Hello world",
-    "price": 500,
-    "thumbnails": [
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.darwinbox.com%2Fwelcome-messages-for-new-employees&psig=AOvVaw26A-QrIIihHRX1J1Zssw8u&ust=1701303108784000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJDVuo3254IDFQAAAAAdAAAAABAE",
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.darwinbox.com%2Fwelcome-messages-for-new-employees&psig=AOvVaw26A-QrIIihHRX1J1Zssw8u&ust=1701303108784000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJDVuo3254IDFQAAAAAdAAAAABAE"
-    ],
-    "code": "WTE",
-    "stock": 10,
-    "status": false,
-    "category": "Welcome"
   }
 ]
