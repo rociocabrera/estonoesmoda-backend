@@ -26,7 +26,7 @@ class CartManager {
     if (cart?.products?.length === 0) throw new Error("Products is required");
     for (const product of cart.products) {
       if (!product.id) throw new Error("Product id is required");
-      if (product.quantity <= 0) throw new Error("Product quantity must be greater than 0");
+      if (product.quantity <= 0 || !product.quantity) throw new Error("Product quantity must be greater than 0");
       const productFound = await productManager.getProductById(product.id);
       if (!productFound) throw new Error(`Product with id ${product.id} not found`);
     }
@@ -51,6 +51,19 @@ class CartManager {
       product.product = productFound;
     }
     return cart;
+  }
+
+  async addProductToCart(id, product, quantity) {
+    const cart = await this.getCartsById(id);
+    await this.validateCart({ products: [{ id: product, quantity }] });
+    const productInCart = cart.products.find((p) => p.id === product);
+    if (productInCart) {
+      productInCart.quantity += quantity;
+    } else {
+      cart.products.push({ id: product, quantity });
+    }
+    await this.saveCarts();
+    return this.getCartsById(id);
   }
 }
 

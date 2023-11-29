@@ -26,4 +26,16 @@ router.get("/:cid", async (req, res) => {
   }
 });
 
+router.post("/:cid/product/:pid", async (req, res) => {
+  try {
+    const id = parseInt(req.params.cid);
+    const product = parseInt(req.params.pid);
+    const quantity = parseInt(req.body.quantity);
+    const cart = await cartManager.addProductToCart(id, product, quantity);
+    res.status(200).json({ status: "ok", data: cart });
+  } catch (error) {
+    res.status(404).json({ status: "error", message: error.message });
+  }
+});
+
 module.exports = router;
