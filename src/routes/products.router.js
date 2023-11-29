@@ -3,7 +3,7 @@ const router = Router();
 const ProductManager = require("../managers/productManager");
 
 // The ProductManager class is instantiated with the path to the products.json file.
-const productManager = new ProductManager("./src/products.json");
+const productManager = new ProductManager("./src/data/products.json");
 // Load products from json file
 productManager.getProducts().then(() => {});
 
