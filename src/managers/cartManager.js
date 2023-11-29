@@ -11,6 +11,12 @@ class CartManager {
     this.path = path;
   }
 
+  async getCarts() {
+    const cartsJSON = await fs.promises.readFile(this.path, "utf-8");
+    this.carts = JSON.parse(cartsJSON);
+    return this.carts;
+  }
+
   async saveCarts() {
     const cartsJSON = JSON.stringify(this.carts, null, 2);
     await fs.promises.writeFile(this.path, cartsJSON);
@@ -35,6 +41,16 @@ class CartManager {
     this.carts.push(newCart);
     await this.saveCarts();
     return newCart;
+  }
+
+  async getCartsById(id) {
+    const cart = this.carts.find((cart) => cart.id === id);
+    if (!cart) throw new Error(`Cart with id ${id} not found`);
+    for (const product of cart.products) {
+      const productFound = await productManager.getProductById(product.id);
+      product.product = productFound;
+    }
+    return cart;
   }
 }
 
