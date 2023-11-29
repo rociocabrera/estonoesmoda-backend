@@ -44,4 +44,15 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.put("/:pid", async (req, res) => {
+  try {
+    const id = parseInt(req.params.pid);
+    const { title, description, price, thumbnails, code, stock, status, category } = req.body;
+    const product = await productManager.updateProduct(id, title, description, price, thumbnails, code, stock, status, category);
+    res.status(200).json({ status: "ok", data: product });
+  } catch (error) {
+    res.status(400).json({ status: "error", message: error.message });
+  }
+});
+
 module.exports = router;
