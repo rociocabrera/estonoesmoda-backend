@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
     res.status(400).json({ status: "error", message: error.message });
   }
 });
-
+// The router.put() method is used to define a route handler for the PUT HTTP method to the path /products/:pid.
 router.put("/:pid", async (req, res) => {
   try {
     const id = parseInt(req.params.pid);
@@ -54,7 +54,7 @@ router.put("/:pid", async (req, res) => {
     res.status(400).json({ status: "error", message: error.message });
   }
 });
-
+// The router.delete() method is used to define a route handler for the DELETE HTTP method to the path /products/:pid.
 router.delete("/:pid", async (req, res) => {
   try {
     const id = parseInt(req.params.pid);

@@ -6,6 +6,7 @@ const cartManager = new CartManager("./src/data/carts.json");
 // Load carts from json file
 cartManager.getCarts().then(() => {});
 
+// router.post add a new product to the cart
 router.post("/", async (req, res) => {
   try {
     const { products } = req.body;
@@ -16,6 +17,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// The get/:cid route handler is used to get a cart by id
 router.get("/:cid", async (req, res) => {
   try {
     const id = parseInt(req.params.cid);
@@ -26,6 +28,7 @@ router.get("/:cid", async (req, res) => {
   }
 });
 
+// router.post add a new product to the cart
 router.post("/:cid/product/:pid", async (req, res) => {
   try {
     const id = parseInt(req.params.cid);
