@@ -30,3 +30,15 @@ const serverHttp = app.listen(PORT, () => {
   console.log(`Server listening on port http:/localhost:${PORT}`);
 });
 const socketServer = new Server(serverHttp);
+// From: https://stackoverflow.com/questions/47249009/nodejs-socket-io-in-a-router-page
+app.set("socketio", socketServer);
+socketServer.on("connection", (socket) => {
+  console.log("Client connected");
+  socket.on("new-product", (data) => {
+    console.log(data);
+    socketServer.emit("update-products", data);
+  });
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+  });
+});

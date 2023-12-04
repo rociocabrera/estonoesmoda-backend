@@ -38,6 +38,9 @@ router.post("/", async (req, res) => {
     const { title, description, price, thumbnails, code, stock, status, category } = req.body;
 
     const product = await productManager.addProduct(title, description, price, thumbnails, code, stock, status, category);
+    const socketIo = req.app.get("socketio");
+    const products = await productManager.getProducts();
+    socketIo.emit("update-products", products);
     res.status(201).json({ status: "ok", data: product });
   } catch (error) {
     res.status(400).json({ status: "error", message: error.message });
@@ -59,6 +62,9 @@ router.delete("/:pid", async (req, res) => {
   try {
     const id = parseInt(req.params.pid);
     await productManager.deleteProduct(id);
+    const socketIo = req.app.get("socketio");
+    const products = await productManager.getProducts();
+    socketIo.emit("update-products", products);
     res.status(200).json({ status: "ok", message: "Product deleted" });
   } catch (error) {
     res.status(400).json({ status: "error", message: error.message });
