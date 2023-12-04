@@ -34,10 +34,6 @@ const socketServer = new Server(serverHttp);
 app.set("socketio", socketServer);
 socketServer.on("connection", (socket) => {
   console.log("Client connected");
-  socket.on("new-product", (data) => {
-    console.log(data);
-    socketServer.emit("update-products", data);
-  });
   socket.on("disconnect", () => {
     console.log("Client disconnected");
   });

@@ -36,7 +36,6 @@ router.post("/", async (req, res) => {
   try {
     console.log(req.body);
     const { title, description, price, thumbnails, code, stock, status, category } = req.body;
-
     const product = await productManager.addProduct(title, description, price, thumbnails, code, stock, status, category);
     const socketIo = req.app.get("socketio");
     const products = await productManager.getProducts();
