@@ -20,6 +20,7 @@
     {{#each products}}
       <li>
         {{this.title}}
+        <button onclick="removeProduct({{this.id}})">Remove</button>
       </li>
     {{/each}}
   </ul>

@@ -115,18 +115,5 @@
     "stock": 6,
     "category": "Pants",
     "status": true
-  },
-  {
-    "id": 10,
-    "title": "pant rosa",
-    "description": "pant rosa materia",
-    "price": "5000",
-    "thumbnails": [
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tiendaganga.com%2Fjean-rosa-mujer%2F&psig=AOvVaw0xBVGAvRogIH_wXvC34rpy&ust=1701743028420000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMihl_fc9IIDFQAAAAAdAAAAABAE"
-    ],
-    "code": "PRM",
-    "stock": "3",
-    "status": true,
-    "category": "pants"
   }
 ]
